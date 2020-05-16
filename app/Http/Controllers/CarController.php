@@ -7,36 +7,25 @@ use App\Car;
 use App\Category;
 
 class CarController extends Controller
+
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function carList()
     {   
         $cars = Car::all();
-        return view('cars.index', compact('cars'));
+        return view('cars.list', compact('cars'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+
+    public function carAdd()
     {
         $categories = Category::all();
-        return view('cars.create', compact('categories'));
+        return view('cars.add', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+
+    public function carSave(Request $request)
     {
         $request->validate([
             'model' => 'required|string',
@@ -72,26 +61,18 @@ class CarController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+
+    public function carInfo($id)
     {
         $car = Car::find($id);
 
-        return view('cars.show', compact('car'));   
+        return view('cars.info', compact('car'));   
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+
+    public function carEdit($id)
     {
         $car = Car::find($id);
         $categories = Category::all();
@@ -99,14 +80,9 @@ class CarController extends Controller
         return view('cars.edit', compact('car', 'categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    
+
+    public function carUpdate(Request $request, $id)
     {
         $request->validate([
             'model' => 'required|string',
@@ -115,7 +91,7 @@ class CarController extends Controller
             'quantity' => 'required|integer',
             'category' => 'required',
             'transmission' => 'required',
-            'image' => 'required|image'
+            'image' => 'image'
         ]);
         
         
@@ -136,24 +112,20 @@ class CarController extends Controller
             
             $updateCar->image = $file_destination.$file_name;
         }
-        
-        // dd($updateCar);
+
      
         $updateCar->save();
         
-        return redirect()->back()->with('message', 'success');
+        return redirect()->back()->with('message', 'Added Successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function carDelete($id) {
+
+        $deleteCar = Car::find($id);
+        $deleteCar->delete();
+
+        return redirect('/cars')->with('message', 'Deleted Successfully');
     }
 
-    
+
 }

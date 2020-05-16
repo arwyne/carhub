@@ -23,7 +23,7 @@
                     @error('model') <p>This field is required</p> @enderror
 
                     <label for="">Car Description:</label>
-                    <input type="text" name="description" class="form-control" required>
+                    <input type="text" name="description" class="form-control" value="{{ $car->description }}"required>
                     @error('model') <p>This field is required</p> @enderror
 
                     <label for="">Rates/Day:</label>
@@ -52,7 +52,7 @@
                     </select>
 
                     <label for="">Upload Image:</label>
-                    <input type="file" name="image" class="form-control" required>
+                    <input type="file" name="image" class="form-control">
                     @error('image') {{ $message }} @enderror
 
                     <button class="btn btn-primary" type="submit">Submit</button>

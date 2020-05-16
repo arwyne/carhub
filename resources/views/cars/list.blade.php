@@ -5,8 +5,12 @@
 @section('body')
     
     <div class="container">
+        @if(session('message'))
+            <div class="alert alert-primary" role="alert">
+                {{ session('message') }}
+            </div>
+        @endif
         <div class="row">
-            
             
             
             @foreach($cars as $car)

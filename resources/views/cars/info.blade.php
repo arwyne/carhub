@@ -21,7 +21,7 @@
                     <p class=""> {{ $car->transmission }}</p>
 
                     <a href="/cars/{{ $car->id }}/edit">Update</a>
-                    <a href="">Delete</a>
+                    <a href="/cars/{{ $car->id }}/delete">Delete</a>
                         
                 </div>
 

@@ -18,9 +18,10 @@
                 <p class=""> {{ $car->transmission }}</p>
                 <p class="">&#8369; {{ number_format($car->rates) }}/day</p>
 
-            <form action="/reservation" method="POST">
+            <form action="/reservation/{{ $car->id }}/save" method="POST">
                 @csrf
                 <input type="hidden" name="car_id" value="{{ $car->id }}">
+                <!-- for getting the rental rate-->
                 <input type="hidden" name="rates" value="{{ $car->rates }}">
                 
                 <div class="form-check">
@@ -45,12 +46,18 @@
                 </div>
 
                 <div>
+                    @error('pickup_date')
+                        {{ $message }}
+                    @enderror
                     <label for="pickup_date">Pickup Date:</label>
                     <input type="date" id="pickup_date" name="pickup_date" required>
                 </div>
 
 
                 <div>
+                    @error('return_date')
+                        {{ $message }}
+                    @enderror
                     <label for="return_date">Return Date:</label>
                     <input type="date" id="return_date" name="return_date" required>
                 </div>

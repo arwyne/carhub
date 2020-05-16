@@ -12,39 +12,30 @@ use Auth;
 
 class ReservationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-       
+    // show reservation form
+    public function reservationAdd($id)
+    {   
+        $rent_auth = Auth::user()->rent_status;
+        // if rent status == 0 there is no existing reservation
+        if($rent_auth == 0) {
+            $car = Car::find($id);
+            $payment_modes = Payment_mode::all();
+            return view('reservation.add', compact('car', 'payment_modes'));
+        } else {
+            return redirect('/profile/reservation');
+        }
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    // create session reserve
+    public function reservationSave(Request $request)
     {
         $data = $request->validate([
             'car_id' => 'required',
             'pickup_time' => 'required',
-            'pickup_date' => 'required',
-            'return_date' => 'required',
+            'pickup_date' => 'required|after_or_equal:today',
+            'return_date' => 'required|after:pickup_date',
             'payment_mode' => 'required'
         ]);
 
@@ -55,7 +46,7 @@ class ReservationController extends Controller
 
         $total_price = ($request->rates + $request->withdriver) * $rent_days;
 
-        $data['rates'] = $request->rates;
+        // $data['rates'] = $request->rates;
         $data['rent_days'] = $rent_days;
         if($request->withdriver) {
             $data['withdriver'] = "w/ Driver";
@@ -64,90 +55,92 @@ class ReservationController extends Controller
 
 
         session()->put('reserve', $data);
-        // return view('reservation.confirm', compact('viewdata'));
 
-        return redirect('/confirm');
+        return redirect('/reservation');
         
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $car = Car::find($id);
-        $payment_modes = Payment_mode::all();
-        return view('reservation.show', compact('car', 'payment_modes'));
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    public function viewConfirm() {
-
-        $data = Session::get('reserve');
-        $time = Carbon::parse($data["pickup_time"])->isoFormat('h:mm:ss a');
-
-        return view('reservation.confirm', compact('data', 'time'));
-
-    }
-
-    public function sendConfirm() {
+    // show session reserve info
+    public function reservationInfo() {
         
-        $data = Session::get('reserve');
-        // dd($data);
+        if(Session::get('reserve')) {
+            // dd(Session::get('reserve'));
+            $data = Session::get('reserve');
 
-        $newReservation = new Reservation();
-        $newReservation->reference_no = "CRHB".time();
-        $newReservation->user_id = Auth::user()->id;
-        $newReservation->car_id = $data['car_id'];
-        $newReservation->payment_mode_id = $data['payment_mode'];
-        // $newReservation->total_price = $data['total_price'];
-        $newReservation->reservation_created = Carbon::now();
-        $newReservation->pickup_time = $data['pickup_time'];
-        $newReservation->pickup_date = $data['pickup_date'];
-        $newReservation->return_date = $data['return_date'];
-        // $newReservation->rent_days = $data['rent_days'];
-        $newReservation->status_id = 1; // Reserved status when confirmed
+            $car = Car::find($data['car_id']);
 
-        $newReservation->save();
+            $payment_mode = Payment_mode::find($data['payment_mode'])->payment_mode_name;
+            $rent_days = $data['rent_days'];
+            $total_price = $data['total_price'];
+            
+            $pickup_time = Carbon::parse($data["pickup_time"])->isoFormat('h:mm:ss a');
+            $pickup_date = Carbon::parse($data['pickup_date'])->isoFormat('MMMM Do YYYY');
+            $return_date = Carbon::parse($data['return_date'])->isoFormat('MMMM Do YYYY');
+            
+            
+            return view('reservation.info', compact('data', 'car', 'pickup_time', 'pickup_date', 'return_date', 'payment_mode', 'rent_days', 'total_price'));
 
+        } else {
+            return redirect('/cars');
+        }
+
+    }
+
+
+    // save session reserve on database
+    public function reservationConfirm() {
+
+        if(Session::get('reserve')) {
+            $data = Session::get('reserve');
+    
+            $newReservation = new Reservation();
+            $newReservation->reference_no = "CRHB".time();
+            $newReservation->user_id = Auth::user()->id;
+            $newReservation->car_id = $data['car_id'];
+            $newReservation->payment_mode_id = $data['payment_mode'];
+            $newReservation->total_price = $data['total_price'];
+            $newReservation->reservation_created = Carbon::now();
+            $newReservation->pickup_time = $data['pickup_time'];
+            $newReservation->pickup_date = $data['pickup_date'];
+            $newReservation->return_date = $data['return_date'];
+            $newReservation->rent_days = $data['rent_days'];
+            $newReservation->status_id = 1; // Reserved status when confirmed
+            $newReservation->save();
+    
+            $newRentStatus = Auth::user();
+            $newRentStatus->rent_status = 1;
+            $newRentStatus->save();
+    
+            Session::forget('reserve');
+            return redirect('/profile/reservation')->with('message', "Your reservation was successfully created!");
+
+        } else {
+            return redirect('/cars');
+        }
+
+    }
+
+
+    // clear session reserve
+    public function reservationClear() {
+
+        Session::forget('reserve');
         return redirect('/cars');
+    }
 
+
+    // cancel resesrvation of user on profile page
+    public function reservationCancel($id) {
+
+        $cancelReservation = Reservation::find($id);
+        $cancelReservation->delete();
+
+        $newRentStatus = Auth::user();
+        $newRentStatus->rent_status = 0;
+        $newRentStatus->save();
+
+        return redirect('/cars')->with('message', "Your reservation was successfully cancelled!");
     }
 
 }

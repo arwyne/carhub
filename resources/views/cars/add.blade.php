@@ -14,7 +14,7 @@
                     </div>
                 @endif
                 
-                <form action="/cars" method="POST" enctype="multipart/form-data">
+                <form action="/cars/add/save" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <label for="">Car Model:</label>

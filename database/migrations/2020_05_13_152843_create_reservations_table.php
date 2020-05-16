@@ -20,10 +20,12 @@ class CreateReservationsTable extends Migration
             $table->unsignedBigInteger('car_id');
             $table->unsignedBigInteger('driver_id')->nullable();
             $table->unsignedBigInteger('payment_mode_id');
+            $table->decimal('total_price', 8, 2);
             $table->timestamp('reservation_created')->nullable();
             $table->time('pickup_time');
             $table->date('pickup_date');
             $table->date('return_date');
+            $table->integer('rent_days');
             $table->unsignedBigInteger('status_id');
             $table->timestamps();
 

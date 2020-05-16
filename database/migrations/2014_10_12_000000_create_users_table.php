@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('mobile_no');
             $table->string('image')->nullable();
+            $table->boolean('rent_status')->default(0); // 1 if have existing rent
             $table->boolean('role')->default(0); // 1 for admin, 0 for ordinary user
             $table->rememberToken();
             $table->timestamps();
