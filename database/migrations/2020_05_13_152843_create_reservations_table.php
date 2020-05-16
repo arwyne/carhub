@@ -1,0 +1,48 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateReservationsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('reservations', function (Blueprint $table) {
+            $table->id();
+            $table->string('reference_no');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('car_id');
+            $table->unsignedBigInteger('driver_id')->nullable();
+            $table->unsignedBigInteger('payment_mode_id');
+            $table->timestamp('reservation_created')->nullable();
+            $table->time('pickup_time');
+            $table->date('pickup_date');
+            $table->date('return_date');
+            $table->unsignedBigInteger('status_id');
+            $table->timestamps();
+
+            // Foreign Keys
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('car_id')->references('id')->on('cars')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('driver_id')->references('id')->on('drivers')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('payment_mode_id')->references('id')->on('payment_modes')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade')->onDelete('restrict');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('reservations');
+    }
+}
