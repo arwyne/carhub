@@ -51,10 +51,22 @@
                         <option value="Manual Transmission">Manual Transmission</option>
                     </select>
 
-                    <label for="">Upload Image:</label>
-                    <input type="file" name="image" class="form-control" required>
+                    {{-- <label for="">Upload Image:</label>
+                    <input type="file" name="image" class="form-control" required> --}}
+                    
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-preview img-thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+                        <div>
+                            <span class="btn btn-outline-secondary btn-file">
+                                <span class="fileinput-new">Select image</span>
+                                <span class="fileinput-exists">Change</span>
+                                <input type="file" name="image">
+                            </span>
+                            <a href="#" class="btn btn-outline-secondary fileinput-exists" data-dismiss="fileinput">Remove</a>
+                        </div>
+                    </div>
                     @error('image') {{ $message }} @enderror
-
+                    
                     <button class="btn btn-primary" type="submit">Submit</button>
 
                 </form>

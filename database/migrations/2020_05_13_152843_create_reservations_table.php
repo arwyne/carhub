@@ -26,6 +26,7 @@ class CreateReservationsTable extends Migration
             $table->date('pickup_date');
             $table->date('return_date');
             $table->integer('rent_days');
+            $table->boolean('withdriver')->default(0);
             $table->unsignedBigInteger('status_id');
             $table->timestamps();
 

@@ -74,12 +74,18 @@ class ReservationController extends Controller
             $rent_days = $data['rent_days'];
             $total_price = $data['total_price'];
             
-            $pickup_time = Carbon::parse($data["pickup_time"])->isoFormat('h:mm:ss a');
+            $pickup_time = Carbon::parse($data["pickup_time"])->isoFormat('h:mm a');
             $pickup_date = Carbon::parse($data['pickup_date'])->isoFormat('MMMM Do YYYY');
             $return_date = Carbon::parse($data['return_date'])->isoFormat('MMMM Do YYYY');
             
-            
-            return view('reservation.info', compact('data', 'car', 'pickup_time', 'pickup_date', 'return_date', 'payment_mode', 'rent_days', 'total_price'));
+            if(isset($data['withdriver'])) {
+                $withdriver = 'w/ Driver';
+                return view('reservation.info', compact('data', 'car', 'pickup_time', 'pickup_date', 'return_date', 'payment_mode', 'rent_days', 'total_price', 'withdriver'));
+
+            } else {
+                return view('reservation.info', compact('data', 'car', 'pickup_time', 'pickup_date', 'return_date', 'payment_mode', 'rent_days', 'total_price'));
+            }
+
 
         } else {
             return redirect('/cars');
@@ -93,7 +99,8 @@ class ReservationController extends Controller
 
         if(Session::get('reserve')) {
             $data = Session::get('reserve');
-    
+            
+            
             $newReservation = new Reservation();
             $newReservation->reference_no = "CRHB".time();
             $newReservation->user_id = Auth::user()->id;
@@ -106,11 +113,15 @@ class ReservationController extends Controller
             $newReservation->return_date = $data['return_date'];
             $newReservation->rent_days = $data['rent_days'];
             $newReservation->status_id = 1; // Reserved status when confirmed
+            if(isset($data['withdriver'])) {
+                $newReservation->withdriver = 1;
+            };
             $newReservation->save();
-    
-            $newRentStatus = Auth::user();
-            $newRentStatus->rent_status = 1;
-            $newRentStatus->save();
+            
+            // update rent status of user when confirmed
+            $user = Auth::user();
+            $user->rent_status = 1;
+            $user->save();
     
             Session::forget('reserve');
             return redirect('/profile/reservation')->with('message', "Your reservation was successfully created!");
@@ -133,12 +144,13 @@ class ReservationController extends Controller
     // cancel resesrvation of user on profile page
     public function reservationCancel($id) {
 
-        $cancelReservation = Reservation::find($id);
-        $cancelReservation->delete();
+        $reservation = Reservation::find($id);
+        $reservation->delete();
 
-        $newRentStatus = Auth::user();
-        $newRentStatus->rent_status = 0;
-        $newRentStatus->save();
+        // update rent status of user when reservation is cancelled
+        $user = Auth::user();
+        $user->rent_status = 0;
+        $user->save();
 
         return redirect('/cars')->with('message', "Your reservation was successfully cancelled!");
     }

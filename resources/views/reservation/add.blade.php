@@ -32,6 +32,7 @@
                 <div>
                     <label for="pickup_time">Pickup Time:</label>
                     <select id="pickup_time" name="pickup_time" required>
+                        <option value="" selected disabled>Please Select Time</option>
                         <option value="8:00:00">8:00 AM</option>
                         <option value="9:00:00">9:00 AM</option>
                         <option value="10:00:00">10:00 AM</option>

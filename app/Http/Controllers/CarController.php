@@ -121,8 +121,8 @@ class CarController extends Controller
 
     public function carDelete($id) {
 
-        $deleteCar = Car::find($id);
-        $deleteCar->delete();
+        $car = Car::find($id);
+        $car->delete();
 
         return redirect('/cars')->with('message', 'Deleted Successfully');
     }

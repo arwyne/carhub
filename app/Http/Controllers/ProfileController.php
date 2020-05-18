@@ -10,7 +10,7 @@ use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
-    public function profileInfo() {
+    public function profileStatus() {
         // $id = Auth::user()->id;
         // $reservation = Reservation::where('user_id', $id)->latest('reservation_created')->first();
         // $car = $reservation->car()->get();
@@ -21,7 +21,7 @@ class ProfileController extends Controller
         $payment_mode = $reservation->payment_mode()->get()->first();
         
         $time = $reservation->pickup_time;
-        $pickup_time = Carbon::parse($time)->isoFormat('h:mm:ss a');
+        $pickup_time = Carbon::parse($time)->isoFormat('h:mm a');
 
         $date1 =  $reservation->pickup_date;
         $pickup_date = Carbon::parse($date1)->isoFormat('MMMM Do YYYY');
@@ -30,10 +30,21 @@ class ProfileController extends Controller
         $return_date = Carbon::parse($date2)->isoFormat('MMMM Do YYYY');
 
         if($user->rent_status == 1) { 
-            return view('profile.info', compact('user', 'reservation', 'car', 'payment_mode', 'pickup_time', 'pickup_date', 'return_date'));
+            return view('profile.status', compact('user', 'reservation', 'car', 'payment_mode', 'pickup_time', 'pickup_date', 'return_date'));
         } else {
             return redirect('/cars');
         }
+
+    }
+
+
+    public function profileList() {
+        $user = Auth::user();
+
+        $sort = request('sort', 'desc');
+        $reservations = $user->reservation()->orderBy('reservation_created', $sort)->get();
+
+        return view('profile.list', compact('reservations', 'sort'));
 
     }
 }

@@ -16,8 +16,12 @@
                 <p>Pickup Date: {{ $pickup_date }}</p>
                 <p>Return Date: {{ $return_date }}</p>
                 <p>Rent Days: {{ $rent_days }}days </p>
+                <p>Car Rates: &#8369;{{ number_format($car->rates) }}/day</p>
+                @if(isset($withdriver))
+                <p>{{ $withdriver }} (additional &#8369; 2,000/day)</p>
+                @endif
+                <p>Total Price: &#8369;{{ number_format($total_price) }}</p>
                 <p>Payment Mode: {{ $payment_mode }}</p>
-                <p>Total Price: &#8369;{{ $total_price }}</p>
            
               
                
