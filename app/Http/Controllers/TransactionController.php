@@ -9,6 +9,8 @@ use App\Payment_mode;
 use App\Status;
 use Carbon\Carbon;
 
+use DB;
+
 class TransactionController extends Controller
 {
     public function transactionList() {
@@ -136,4 +138,5 @@ class TransactionController extends Controller
         return redirect('/transactions')->with('message', 'Updated Successfully');
         
     }
+
 }

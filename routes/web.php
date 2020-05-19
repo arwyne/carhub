@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // auth user and admin
-Route::get('/cars', 'CarController@carList');
+Route::get('/cars', 'CarController@carList')->middleware('admin');
 
 // admin
 Route::get('/cars/add', 'CarController@carAdd');

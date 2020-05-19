@@ -18,7 +18,6 @@ class CreateReservationsTable extends Migration
             $table->string('reference_no');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('car_id');
-            $table->unsignedBigInteger('driver_id')->nullable();
             $table->unsignedBigInteger('payment_mode_id');
             $table->decimal('total_price', 8, 2);
             $table->timestamp('reservation_created')->nullable();
