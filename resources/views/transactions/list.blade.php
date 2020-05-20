@@ -4,30 +4,30 @@
 
 @section('body')
 
-<div class="container main-container">
+<div class="container">
+
     @if(session('message'))
         <div class="alert alert-primary" role="alert">
             {{ session('message') }}
         </div>
     @endif
-    <h2>List of Transactions</h2>
-
+    
     <div class="row">
-        <div class="col">
-
-
+        <div class="col transaction-container">
+            <h2>List of Transactions</h2>
+            
+            <input type="text" name="search" id="search" class="form-control" placeholder="Search">
             <div class="table-container">
-                <input type="text" name="search" id="search" class="form-control" placeholder="Search">
                 <table class="table text-center">
                     <thead>
                         <tr>
                             <th>
                                 <div class="d-flex align-items-center">
                                     <div>
-                                        <div>
+                                        <div class="sort-container">
                                             <a href="/transactions"><i class="fas fa-caret-square-up"></i></a>
                                         </div>
-                                        <div>
+                                        <div class="sort-container">
                                             <a href="/transactions?sort=asc"><i class="fas fa-caret-square-down"></i></a>
                                         </div>
                                     </div>

@@ -127,13 +127,18 @@ class TransactionController extends Controller
         $updateReservation->status_id = $request->status_id;
         $updateReservation->rent_days = $rent_days;
         $updateReservation->total_price = $total_price;
-        if($request->withdriver == 1){
-            $updateResevation->withdriver = 1;
-        }else {
-            $updateReservation->withdriver = 0;
+        // dd(isset($request->withdriver) == 1);
+        
+
+        if($request->withdriver == "2000"){
+            $request->withdriver = 1;
+            $updateReservation->withdriver = $request->withdriver;
+        } else {
+            $request->withdriver = 0;
+            $updateReservation->withdriver = $request->withdriver;;
         }
 
-        $updateReservation->update();
+        $updateReservation->save();
 
         return redirect('/transactions')->with('message', 'Updated Successfully');
         

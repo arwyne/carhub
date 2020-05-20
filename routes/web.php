@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/cars');
 });
 
 Auth::routes();
@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // auth user and admin
-Route::get('/cars', 'CarController@carList')->middleware('admin');
+Route::get('/cars', 'CarController@carList');
 
 // admin
 Route::get('/cars/add', 'CarController@carAdd');

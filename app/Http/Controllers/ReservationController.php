@@ -88,7 +88,7 @@ class ReservationController extends Controller
 
 
         } else {
-            return redirect('/cars');
+            return redirect('/cars')->with('message', 'You dont have existing Reservation');
         }
 
     }

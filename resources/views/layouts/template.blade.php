@@ -13,13 +13,16 @@
     <!-- fontawesome icons -->
     <script src="https://kit.fontawesome.com/763fd16ca4.js" crossorigin="anonymous"></script>
 
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Roboto&display=swap" rel="stylesheet">
+
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     
 
 </head>
 <body>
-
+    <header>
       <nav class="navbar navbar-expand-md">
 
           <a class="navbar-brand" href="{{ url('/') }}">
@@ -33,31 +36,29 @@
           <div class="collapse navbar-collapse" id="navCollapse">
             <ul class="navbar-nav ml-auto">
               @guest
-              <li class="nav-item"><a class="nav-link" href="">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+              <li class="nav-item"><a class="nav-link" href="/cars">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
               @else
-              <li class="nav-item"><a class="nav-link" href="">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="/cars">Home</a></li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Profile
-                </a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Reservation</a>
-                  <a class="dropdown-item" href="#">Transactions</a>
+                  <a class="dropdown-item" href="{{'/profile/reservation'}}">Reservation</a>
+                  <a class="dropdown-item" href="{{'/profile/transactions'}}">Transactions</a>
                 </div>
               </li>
-              <li class="nav-item"><a class="nav-link" href="">Logout</a></li>
+              <li class="nav-item">
+
+                <a class="nav-link" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
+              </li>
               @endguest
-
-              
-
-
             </ul>
           </div>
-      </nav>
-
-        
+        </nav>
         
       </header>
       
@@ -66,9 +67,7 @@
       
       
       
-      
-      
-      <footer class="footer">
+    <footer class="footer">
         <div class="container-disclaimer">
             <p class="text-center mb-0">
                  Arwyne De Guzman | Zuitt Coding Bootcamp &copy; 2020

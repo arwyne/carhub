@@ -1,0 +1,510 @@
+$bodyColor: #e0e0e0;
+$headerColor: #081820;
+$footerColor: #081820;
+
+$headerTextColor: #f3f9fa;
+$footerTextColor: #f3f9fa;
+$headingTextColor: #0058a0;
+
+$linkTextColor: #909399;
+
+$headerText: 'PT Sans', sans-serif;
+
+$headingFontSize: 2.8rem;
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    // font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'PT Sans', sans-serif;
+    
+}
+
+body {
+    // background-color: $bodyColor;
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1100px;
+    padding: 0;
+
+    .row {
+        margin: 0;
+    }
+}
+
+
+
+// transaction list page
+.transaction-container {
+    margin-top: 50px;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: $headingTextColor;
+        font-size: $headingFontSize;
+        font-weight: 700;
+        // font-family: ;
+    }
+
+    input {
+        margin-bottom: 20px;
+    }
+}
+
+
+.table-container {
+    overflow-x: auto;
+}
+
+.table thead th {
+    vertical-align: middle;
+    // font-family: ;
+}
+
+.sort-container a i {
+    color: #2068A0;
+    font-size: 1.3rem;
+    margin-right: 6px;
+}
+
+.table a {
+    color: #2068A0;
+}
+
+// transaction
+
+.transaction-info-container, 
+.transactions-edit-container,
+.profile-status-container, 
+.reservation-add-container {
+    margin-top: 25px;
+
+    h2 {
+        font-size: $headingFontSize;
+    }
+
+    h3 {
+        margin-top: 20px;
+    }
+
+    h3 a {
+        color: #2068A0;
+    }
+
+    .image-container img{
+        border-radius: 10px;
+    }
+
+    .button-container button {
+        border-radius: 13px;
+        margin-right: 10px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+}
+
+
+
+
+// add cars page
+
+.bg-add-cars {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-image: url('../images/bg-add.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+
+.cars-add-container {
+
+    .cars-add-header {
+        margin-bottom: 25px;
+       
+        h3 {
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: solid 1px black;
+        }
+
+    }
+
+    .cars-add-body {
+        align-items: center;
+        margin-bottom: 25px;
+
+    }
+
+    .add-image {
+        
+        text-align: center;
+
+        .img-thumbnail {
+            margin-bottom: 20px;
+            box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .img-thumbnail:hover {
+            box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+    }
+
+    .add-form {
+
+        input[type="text"], input[type="number"], select  {
+            outline: 0;
+            border-radius: 4px;
+            border: 1px solid #d1d1d1;
+            box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        input:hover {
+            box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        input:focus {
+            color: #4b515d;
+            border: 1px solid #B8B6B6;
+            box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+    }
+
+    .btn-block {
+        background-color: red;
+        width: 40%;
+        height: 35px;
+        background-color: #8ac832;
+        margin: 0 auto;
+        border-radius: 20px;
+        border: none;
+    }
+
+}
+
+
+
+
+
+// login page
+
+.bg-login {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-image: url('../images/bg-login.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+
+.login-container {
+
+
+    .login-header {
+        margin-bottom: 25px;
+       
+        h3 {
+            text-align: center;
+            width: 40%;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: solid 1px black;
+            padding-bottom: 5px;
+            margin-left: 20px;
+        }
+    }
+
+
+    .login-form {
+
+        input[type="text"], input[type="password"] {
+            outline: 0;
+            border-radius: 4px;
+            border: 1px solid #d1d1d1;
+            box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        input:hover {
+            box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
+        }
+    
+        input:focus {
+            color: #4b515d;
+            border: 1px solid #B8B6B6;
+            box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        label {
+            font-weight: 500;
+        }
+    
+    }
+
+    .btn-block {
+        background-color: red;
+        width: 45%;
+        height: 40px;
+        background-color: #8ac832;
+        border-radius: 20px;
+        border: none;
+        margin-top: 20px;
+        margin-bottom: 18px;
+    }
+
+}
+
+
+
+
+// register page
+
+.bg-register {
+    padding-top: 40px;
+    padding-bottom: 100px;
+    background-image: url('../images/bg-register.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.register-container {
+ 
+    .register-header {
+        margin-bottom: 18px;
+       
+        h3 {
+            text-align: center;
+            width: 40%;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: solid 1px black;
+            padding-bottom: 5px;
+            margin-left: 20px;
+        }
+    }
+
+    .register-form {
+
+        input[type="text"], input[type="email"], input[type="number"], input[type="password"] {
+            outline: 0;
+            border-radius: 4px;
+            border: 1px solid #d1d1d1;
+            box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        input:hover {
+            box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
+        }
+    
+        input:focus {
+            color: #4b515d;
+            border: 1px solid #B8B6B6;
+            box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        label {
+            font-weight: 500;
+        }
+    
+    }
+    
+    .btn-block {
+        background-color: red;
+        width: 45%;
+        height: 40px;
+        background-color: #8ac832;
+        border-radius: 20px;
+        border: none;
+        margin-top: 25px;
+        margin-bottom: 18px;
+    }
+
+}
+
+
+
+// home page
+
+
+
+
+
+// header
+
+.navbar {
+    border-top: solid 1px $headerTextColor;
+    background-color: $headerColor;
+
+    .navbar-brand {
+        color: $headerTextColor;
+        // font-family: $headerText;
+    }
+
+    .navbar-brand img {
+        width: 35px;
+        margin-right: 8px;
+    }
+
+    .nav-item a {
+        color: $headerTextColor;
+        // font-family: $headerText;
+        text-align: center;
+    }
+
+    .navbar-toggler span {
+        color: $headerTextColor
+    }
+
+    .dropdown-menu {
+        background-color: $headerColor;
+        color: $headerColor;
+
+        .dropdown-item:hover {
+            background-color: $headerTextColor;
+            color: $headerColor;
+        }
+    }
+
+}
+
+
+
+// footer
+
+.footer {
+    background-color: $footerColor;
+    color: $footerTextColor;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+
+
+
+@media only screen and (max-width: 400px) {
+
+    // login page
+    .bg-login {
+        background-image: none;
+        padding-bottom: 0px;
+        padding-top: 70px;
+    }
+
+    // add cars
+    .bg-add-cars {
+        background-image: none;
+        padding-top: 50px;
+    }
+
+    .cars-add-container {
+        margin-bottom: 70px;
+
+        // .cars-add-body {
+        //     flex-direction: column;
+        // }
+
+    }
+
+}
+
+
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+
+    // login page
+
+    .cars-add-container {
+        margin-left: 10px;
+
+        // .cars-add-body {
+        //     flex-direction: column;
+        // }
+    }
+
+}
+
+
+
+
+
+
+// .transaction-container {
+//     margin-top: 60px;
+
+//     .app-head-container h2{
+//         text-align: center;
+//         font-size: $appHeaderFontSize;
+//         margin-bottom: 40px;
+//     }
+// }
+
+// .table-container {
+//     overflow-x: auto;
+
+// }
+
+
+// .main-container {
+//     max-width: 1200px;
+//     margin-top: 100px;
+// }
+
+
+
+// card
+
+// #card-container {
+//     padding-bottom: 100px;
+// }
+
+// .card {
+//     margin-top: 50px;
+
+// }
+
+
+// register page
+
+// .register-container {
+//     border: solid 1px black;
+//     padding-top: 100px;
+// }
+
+
+// cars add form page
+
+// .form-container { 
+//     margin-top: 80px;
+// }
+
