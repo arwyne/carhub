@@ -11,12 +11,6 @@
                 <div class="row cars-add-header">
                     <h3>Add Cars</h3>
                 </div>
-                @if(session('message'))
-                <div class="alert alert-primary" role="alert">
-                    {{ session('message') }}
-                </div>
-                @endif
-                
                 
                 <form action="/cars/add/save" method="POST" enctype="multipart/form-data">
                         @csrf

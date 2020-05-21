@@ -32,7 +32,7 @@
                 
                 <div class="col profit board">
                     <h4><span><i class="far fa-money-bill-alt"></i></span> Total Profit</h4>
-                    <p>&#8369;{{ $profit }}</p>
+                    <p>&#8369;{{ number_format($profit) }}</p>
                 </div>
             </div>
 

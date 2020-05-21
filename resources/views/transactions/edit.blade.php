@@ -7,12 +7,7 @@
 
 <div class="container-fluid bg-trans-edit">
     <div class="col-lg-6 offset-lg-1">
-    
-        @if(session('message'))
-        <div class="alert alert-primary" role="alert">
-                {{ session('message') }}
-        </div>
-        @endif 
+
 
 
         <div class="trans-edit-container">

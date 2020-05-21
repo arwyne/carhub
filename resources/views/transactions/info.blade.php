@@ -6,11 +6,7 @@
     
 <div class="container-fluid bg-trans-info">
     <div class="col-lg-6 offset-lg-5">
-        @if(session('message'))
-        <div class="alert alert-primary" role="alert">
-            {{ session('message') }}
-        </div>
-        @endif
+
     
             <div class="trans-info-container">
                 <div class="row trans-info-header">

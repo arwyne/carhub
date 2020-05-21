@@ -35,7 +35,8 @@ class ProfileController extends Controller
         if($user->rent_status == 1) { 
             return view('profile.status', compact('user', 'reservation', 'car', 'payment_mode', 'pickup_time', 'pickup_date', 'return_date'));
         } else {
-            return redirect('/cars')->with('message', 'You dont have existing Reservation');
+            alert()->error('No Existing Reservation');
+            return redirect('/cars');
         }
         
 

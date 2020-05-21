@@ -61,4 +61,5 @@ Route::middleware(['admin'])->group(function() {
 
     Route::get('/assets', 'AdminController@assetsList');
     Route::get('/dashboard', 'AdminController@dashboard');
+    Route::get('/assets/{id}/delete', 'AdminController@carDelete');
 });

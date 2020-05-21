@@ -31,7 +31,8 @@ class TransactionController extends Controller
         $reservation = Reservation::find($id);
         $reservation->delete();
         
-        return redirect('/transactions')->with('message', "Deleted Successfully");
+        alert()->success('Deleted Successfully');
+        return redirect('/transactions');
 
     }
 
@@ -48,10 +49,12 @@ class TransactionController extends Controller
 
             $reservation->status_id = 2;
             $reservation->update();
+            alert()->success('Deployed Successfully!');
             return redirect()->back()->with('message', "Deployed Successfully");
 
         } else {
-            return redirect()->back()->with('message', "There is no available $car->model.");
+            alert()->error("There is no available $car->model");
+            return redirect()->back();
         }
         
         // decrement quantity of cars when deployed
@@ -75,8 +78,8 @@ class TransactionController extends Controller
         $user = $reservation->user()->first();
         $user->rent_status = 0;
         $user->update();
-        
-        return redirect()->back()->with('message', "Transaction Completed");
+        alert()->success('Transaction Completed!');
+        return redirect()->back();
 
     }
 
@@ -135,12 +138,12 @@ class TransactionController extends Controller
             $updateReservation->withdriver = $request->withdriver;
         } else {
             $request->withdriver = 0;
-            $updateReservation->withdriver = $request->withdriver;;
+            $updateReservation->withdriver = $request->withdriver;
         }
 
         $updateReservation->save();
-
-        return redirect('/transactions')->with('message', 'Updated Successfully');
+        alert()->success('Updated Successfully');
+        return redirect('/transactions');
         
     }
 

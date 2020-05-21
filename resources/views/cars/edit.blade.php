@@ -12,12 +12,7 @@
             <div class="row car-edit-header">
                 <h3>Update Car's Information</h3>
             </div>
-            @if(session('message'))
-            <div class="alert alert-primary" role="alert">
-                {{ session('message') }}
-            </div>
-            @endif
-            
+
             
             <form action="/cars/{{ $car->id }}" method="POST" enctype="multipart/form-data">
                 @csrf

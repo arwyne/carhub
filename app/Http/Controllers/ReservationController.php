@@ -22,6 +22,7 @@ class ReservationController extends Controller
             $payment_modes = Payment_mode::all();
             return view('reservation.add', compact('car', 'payment_modes'));
         } else {
+            alert()->error('You have an existing reservation!');
             return redirect('/profile/reservation');
         }
 
@@ -88,7 +89,8 @@ class ReservationController extends Controller
 
 
         } else {
-            return redirect('/cars')->with('message', 'You dont have existing Reservation');
+            alert()->error('You dont gave an existing Reservation!');
+            return redirect('/cars');
         }
 
     }
@@ -124,7 +126,8 @@ class ReservationController extends Controller
             $user->save();
     
             Session::forget('reserve');
-            return redirect('/profile/reservation')->with('message', "Your reservation was successfully created!");
+            alert()->success('Your reservation was successfully created!');
+            return redirect('/profile/reservation');
 
         } else {
             return redirect('/cars');
@@ -151,8 +154,8 @@ class ReservationController extends Controller
         $user = Auth::user();
         $user->rent_status = 0;
         $user->save();
-
-        return redirect('/cars')->with('message', "Your reservation was successfully cancelled!");
+        alert()->success('Your reservation was successfully cancelled!');
+        return redirect('/cars');
     }
 
 }

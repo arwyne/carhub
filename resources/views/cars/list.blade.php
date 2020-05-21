@@ -6,13 +6,6 @@
   
 
     <div class="bg-main">
-    
-        @if(session('message'))
-        <div class="alert alert-primary" role="alert">
-                {{ session('message') }}
-        </div>
-        @endif 
-
 
         <div class="main-container">
 

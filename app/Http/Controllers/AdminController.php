@@ -29,4 +29,13 @@ class AdminController extends Controller
         return view('admin.dashboard', compact('registered', 'profit', 'deployed', 'pending'));
 
     }
+
+
+    public function carDelete($id) {
+
+        $car = Car::find($id);
+        $car->delete();
+        alert()->success('Deleted Successfully');
+        return redirect()->back();
+    }
 }

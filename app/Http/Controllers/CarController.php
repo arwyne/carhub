@@ -56,8 +56,8 @@ class CarController extends Controller
         // dd($newCar);
      
         $newCar->save();
-        
-        return redirect()->back()->with('message', 'success');
+        alert()->success('Added Successfully');
+        return redirect()->back();
 
     }
 
@@ -115,16 +115,16 @@ class CarController extends Controller
 
      
         $updateCar->save();
-        
-        return redirect()->back()->with('message', 'Updated Successfully');
+        alert()->success('Updated Successfully');
+        return redirect()->back();
     }
 
     public function carDelete($id) {
 
         $car = Car::find($id);
         $car->delete();
-
-        return redirect('/cars')->with('message', 'Deleted Successfully');
+        alert()->success('Deleted Successfully');
+        return redirect('/cars');
     }
 
 

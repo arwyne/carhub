@@ -75,7 +75,7 @@
                                         {{ $car->quantity }}
                                     </td>
                                     <td>
-                                        <a href="/cars/{{$car->id}}/delete"><i class="fas fa-times text-danger"></i></a>
+                                        <a href="/assets/{{$car->id}}/delete"><i class="fas fa-times text-danger"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
