@@ -31,7 +31,7 @@ class CreateReservationsTable extends Migration
 
             // Foreign Keys
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreign('car_id')->references('id')->on('cars')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('car_id')->references('id')->on('cars')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('payment_mode_id')->references('id')->on('payment_modes')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade')->onDelete('restrict');
         });

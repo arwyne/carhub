@@ -51,6 +51,20 @@
                   <a class="dropdown-item" href="{{'/profile/transactions'}}">Transactions</a>
                 </div>
               </li>
+
+              @admin
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{{'/dashboard'}}">Dashboard</a>
+                  <a class="dropdown-item" href="{{'/cars/add'}}">Add Car</a>
+                  <a class="dropdown-item" href="{{'/assets'}}">Assets</a>
+                  <a class="dropdown-item" href="{{'/transactions'}}">Transactions</a>
+                </div>
+              </li>
+              @endadmin
+              
+
               <li class="nav-item">
 
                 <a class="nav-link" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>

@@ -88,25 +88,25 @@
                                     </td>
             
                                     @if($reservation->status_id == 1)
-                                    <td>
+                                    <td class="icon-container">
                                         {{-- <a href="transactions/{{ $reservation->id }}/deploy"><i class="fas fa-check text-info"></i></a> --}}
                                         <a href="/transactions/{{ $reservation->id }}/deploy"><i class="fas fa-car text-info"></i></a>
                                     </td>
-                                    <td>
+                                    <td class="icon-container">
                                         <a href="/transactions/{{ $reservation->id }}/delete"><i class="fas fa-times text-danger"></i></a>
-                                    </td>
+                                    </td class="icon-container">
             
                                     @elseif($reservation->status_id == 2)
-                                    <td>
+                                    <td class="icon-container">
                                         <a href="/transactions/{{ $reservation->id }}/return"><i class="fas fa-check text-success"></i></a>
                                     </td>
-                                    <td>
+                                    <td class="icon-container">
                                         <a href="/transactions/{{ $reservation->id }}/delete"><i class="fas fa-times text-danger"></i></a>
                                     </td>
             
                                     @else
                                     <td></td>
-                                    <td>
+                                    <td class="icon-container">
                                         <a href="/transactions/{{ $reservation->id }}/delete"><i class="fas fa-times text-danger"></i></a>
                                     </td>
                                     @endif

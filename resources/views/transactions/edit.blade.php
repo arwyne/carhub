@@ -92,21 +92,29 @@
                                 </tr>
     
                                 <tr>
-                                    @error('pickup_date')
-                                    {{ $message }}
-                                    @enderror
                                     <td>
                                         <label for="pickup_date">Pickup Date:</label>
                                     </td>
-                                    <td><input type="date" id="pickup_date" name="pickup_date" value="{{ $reservation->pickup_date }}" required></td>
+                                    <td>
+                                        <input type="date" id="pickup_date" name="pickup_date" class="form-control @error('pickup_date') is-invalid @enderror" value="{{ $reservation->pickup_date }}" required>
+                                        @error('pickup_date')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </td>
                                 </tr>
     
                                 <tr>
-                                    @error('return_date')
-                                    {{ $message }}
-                                    @enderror
                                     <td><label for="return_date">Return Date:</label></td>
-                                    <td><input type="date" id="return_date" name="return_date" value="{{ $reservation->return_date }}" required></td>
+                                    <td>
+                                        <input type="date" id="return_date" class="form-control @error('return_date') is-invalid @enderror"" name="return_date" value="{{ $reservation->return_date }}" required>
+                                        @error('return_date')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </td>
                                 </tr>
     
                                 <tr>

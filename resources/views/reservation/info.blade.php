@@ -6,7 +6,7 @@
     
     
 <div class="container-fluid bg-reserve-info">
-    <div class="col-lg-3 offset-lg-7">
+    <div class="col-lg-3 offset-lg-7 col-md-6 offset-md-6">
     
         <div class="reserve-info-container">
             <div class="row reserve-info-header">
@@ -15,7 +15,7 @@
         
                 <div class="row reserve-info-body">
    
-                    <div class="col-lg-10 offset-lg-1 reserve-info">
+                    <div class="col reserve-info">
                         <table class="table">
                             <tr>
                                 <td class="label">Car Model:</td>

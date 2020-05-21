@@ -20,7 +20,7 @@
                     <div class="col-md-10 login-form">
 
                         <div class="form-group">
-                            <label for="email" class="">Username or Email:</label>
+                            <label for="email" class="">Email:</label>
                             <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
         
                             @error('email')

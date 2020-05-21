@@ -34,12 +34,16 @@
                                     <span class="btn btn-dark btn-file">
                                         <span class="fileinput-new">Select image</span>
                                         <span class="fileinput-exists">Change</span>
-                                        <input type="file" name="image">
+                                        <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
                                     </span>
                                     <a href="#" class="btn btn-dark fileinput-exists" data-dismiss="fileinput">Remove</a>
                                 </div>
                             </div>
-                            @error('image') {{ $message }} @enderror
+                            @error('image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
 
                     </div>
@@ -48,26 +52,42 @@
 
                         <div class="form-group">
                             <label for="">Car Model:</label>
-                            <input type="text" name="model" class="form-control" value="{{ $car->model }}" required>
-                            @error('model') <p>This field is required</p> @enderror
+                            <input type="text" name="model" class="form-control @error('model') is-invalid @enderror" value="{{ $car->model }}" required>
+                            @error('quantity')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
     
                         <div class="form-group">
                             <label for="">Car Description:</label>
-                            <input type="text" name="description" class="form-control" value="{{ $car->description }}"required>
-                            @error('model') <p>This field is required</p> @enderror
+                            <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{ $car->description }}"required>
+                            @error('quantity')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
     
                         <div class="form-group">
                             <label for="">Rates/day:</label>
-                            <input type="number" name="rates" class="form-control" step="0.01" value="{{ $car->rates }}" required>
-                            @error('rates') {{ $message }} @enderror
+                            <input type="number" name="rates" class="form-control @error('rates') is-invalid @enderror" step="0.01" value="{{ $car->rates }}" required>
+                            @error('rates')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
     
                         <div class="form-group">
                             <label for="">Quantity:</label>
-                            <input type="number" name="quantity" class="form-control" value="{{ $car->quantity }}" required>
-                            @error('quantity') {{ $message }} @enderror
+                            <input type="number" name="quantity" class="form-control @error('quantity') is-invalid @enderror" value="{{ $car->quantity }}" required>
+                            @error('quantity')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
     
                         <div class="form-group">
