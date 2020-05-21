@@ -116,7 +116,7 @@ class CarController extends Controller
      
         $updateCar->save();
         
-        return redirect()->back()->with('message', 'Added Successfully');
+        return redirect()->back()->with('message', 'Updated Successfully');
     }
 
     public function carDelete($id) {

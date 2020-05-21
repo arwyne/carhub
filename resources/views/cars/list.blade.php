@@ -20,7 +20,7 @@
                 <div class="row welcome-container">
                     <div class="col-md-10 offset-md-1 text-center">
 
-                        <h2>WELCOME TO CARHUB <span><i class="fas fa-car-side"></i></span></h1>
+                        <h1>WELCOME TO CARHUB <span><i class="fas fa-car-side"></i></span></h1>
                         <h3>What We Can Offer</h3>
                         <p>Here at CarHub. We Meet Every Demands/Standards For Self Drive Car Rentals. We Make Everything Hassle Free And Also One of the Cheapest Car Rental Rates In Manila Or in the Philippines Which also offers Short And Long Term Car Rental Lease With Our Well Maintained Cars, Courteous Staff And Drivers</p>
                     </div>
@@ -89,35 +89,36 @@
 
             
             
-            
-            
-            
-
-
                     
-            <div class="container">
+            <div class="container body-container">
 
-                <div class="row">
+                <h3>Our Cars</h3>
+
+                <div class="row search-container">
                     <div class="col">
                         <input type="text" name="search" id="search" class="form-control" placeholder="Search">
                     </div>
                 </div>
                 
                 <div class="row" id="card-container">
-                @foreach($cars as $car)
-                    <div class="col-md-4">
+                    @foreach($cars as $car)
+                    <div class="col-md-6 col-lg-4 justify-content">
                         
-                            <div class="card">
-                            <img class="card-img-top" src="{{ asset($car->image) }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $car->model }}</h5>
-                                    <p class="card-text"> {{ $car->description }}</p>
-                                    <p class="card-text">&#8369; {{ number_format($car->rates) }}/day</p>
-                                    <a href="/reservation/{{ $car->id }}" class="btn btn-primary">Rent</a>
-                                    <a href="/cars/{{ $car->id }}"><i class="fas fa-ellipsis-h"></i></a>
-                                    
-                                </div>
+                        <div class="card">
+                            <div class="option-container">
+                                @admin
+                                <a href="/cars/{{ $car->id }}"><i class="fas fa-ellipsis-h"></i></a>
+                                @endadmin
                             </div>
+                            <img class="card-img-top" src="{{ asset($car->image) }}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $car->model }}</h5>
+                                <p class="card-desc"> {{ $car->description }}</p>
+                                <p class="card-text">&#8369; {{ number_format($car->rates) }}/day</p>
+                                <a href="/reservation/{{ $car->id }}"><button class="btn-block">Rent</button></a>
+                                
+                            </div>
+                        </div>
 
                     </div>
                 @endforeach

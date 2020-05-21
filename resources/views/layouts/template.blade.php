@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
 
+    <!-- fav icon -->
+    <link rel="icon" href="{{ asset('images/fav.png') }} ">
+
     <!-- bootstrap css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/4.0.0/css/jasny-bootstrap.min.css">
@@ -26,7 +29,7 @@
       <nav class="navbar navbar-expand-md">
 
           <a class="navbar-brand" href="{{ url('/') }}">
-            <img class="logo" src="{{ asset('images/logo.png') }}" alt=""><span>CarHub</span>
+            <img class="logo" src="{{ asset('images/logo3.png') }}" alt=""><span>CarHub</span>
           </a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCollapse">

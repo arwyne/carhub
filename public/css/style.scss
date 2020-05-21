@@ -42,13 +42,23 @@ body {
 
 
 // transaction list page
+.bg-trans-list {
+    background-image: url('../images/bg-main.png');
+    padding-top: 60px;
+    padding-bottom: 100px;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
 .transaction-container {
     margin-top: 50px;
 
     h2 {
         text-align: center;
         margin-bottom: 20px;
-        color: $headingTextColor;
         font-size: $headingFontSize;
         font-weight: 700;
         // font-family: ;
@@ -76,7 +86,7 @@ body {
 }
 
 .table a {
-    color: #2068A0;
+    color: #3d8bc7;
 }
 
 // transaction
@@ -194,19 +204,207 @@ body {
     }
 
     .btn-block {
-        background-color: red;
         width: 40%;
         height: 35px;
         background-color: #8ac832;
         margin: 0 auto;
         border-radius: 20px;
         border: none;
+        outline: none;
+    }
+
+    .btn-block:hover {
+        box-shadow: 0 8px 6px -6px black;
+        background-color: #2d2f31;
+        color: #8ac832;
     }
 
 }
 
 
 
+// cars info
+
+.bg-car-info {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-image: url('../images/bg-car-info.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+
+}
+
+.car-info-container {
+
+    .car-info-header {
+        margin-bottom: 40px;
+
+        h3 {
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: solid 1px black;
+            
+        }
+    }
+
+    .car-info-body {
+
+        .car-image img {
+            box-shadow: 0 8px 6px -6px black;
+        }
+
+        .table {
+            margin-bottom: 25px;
+        }
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+
+        .btn-block {
+            width: 100px;
+            height: 35px;
+            margin: 0 auto;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            margin-right: 15px;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .update {
+            background-color: #8ac832;
+            color: #2d2f31;
+        }
+
+        .update:hover {
+            background-color: #2d2f31;
+            color: #8ac832;
+            box-shadow: 0 8px 6px -6px black;
+        }
+
+        .delete {
+            background-color: #e64457;
+            color: white;
+        }
+
+        .delete:hover {
+            background-color: white;
+            border: solid 1px#e64457;
+            color: #e64457;
+            box-shadow: 0 8px 6px -6px black;
+        }
+    }
+}
+
+
+
+// car edit page
+
+.bg-car-edit {
+    padding-top: 70px;
+    padding-bottom: 100px;
+    background-image: url('../images/bg-car-edit.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+
+.car-edit-container {
+
+    .car-edit-header {
+        margin-bottom: 25px;
+       
+        h3 {
+            text-align: center;
+            width: 70%;
+            margin: 0 auto;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: solid 1px black;
+            padding-bottom: 10px;
+        }
+
+    }
+
+    .car-edit-body {
+        align-items: center;
+        margin-bottom: 25px;
+
+    }
+
+    .add-image {
+        
+        text-align: center;
+
+        .img-thumbnail {
+            margin-bottom: 20px;
+            box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .img-thumbnail:hover {
+            box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+    }
+
+    .add-form {
+
+        input[type="text"], input[type="number"], select  {
+            outline: 0;
+            border-radius: 4px;
+            border: 1px solid #d1d1d1;
+            box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        input:hover {
+            box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        input:focus {
+            color: #4b515d;
+            border: 1px solid #B8B6B6;
+            box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+    }
+
+    .btn-block {
+        width: 40%;
+        height: 35px;
+        background-color: #8ac832;
+        margin: 0 auto;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+    }
+
+    .btn-block:hover {
+        box-shadow: 0 8px 6px -6px black;
+        background-color: #2d2f31;
+        color: #8ac832;
+    }
+
+}
 
 
 // login page
@@ -275,7 +473,15 @@ body {
         border: none;
         margin-top: 20px;
         margin-bottom: 18px;
+        outline: none;
     }
+
+    .btn-block:hover {
+        box-shadow: 0 8px 6px -6px black;
+        background-color: #2d2f31;
+        color: #8ac832;
+    }
+
 
 }
 
@@ -337,7 +543,6 @@ body {
     }
     
     .btn-block {
-        background-color: red;
         width: 45%;
         height: 40px;
         background-color: #8ac832;
@@ -345,6 +550,13 @@ body {
         border: none;
         margin-top: 25px;
         margin-bottom: 18px;
+        outline: none;
+    }
+
+    .btn-block:hover {
+        box-shadow: 0 8px 6px -6px black;
+        background-color: #2d2f31;
+        color: #8ac832;
     }
 
 }
@@ -366,11 +578,12 @@ body {
 .main-container {
 
     .head-container {
+        margin-bottom: 200px;
 
         .welcome-container {
             margin-bottom: 50px;
 
-            h2 {
+            h1 {
                 font-family: $headerText;
                 font-size: 4rem;
                 font-weight: 500;
@@ -468,9 +681,643 @@ body {
                 margin-bottom: 10px;
             }
         }
+
+    }
+    
+    
+
+    .body-container {
+
+        h3 {
+            font-size: 2.5rem;
+            text-align: center;
+            border-bottom: 1px solid #909399;
+            width: 50%;
+            margin: 0 auto;
+            margin-bottom: 50px;
+            font-family: $headerText;
+
+        }
+
+        .search-container {
+            margin-bottom:50px;
+        }
+
+        #card-container {
+
+            .card {
+                min-height: 400px;
+                margin-bottom: 50px;
+                width: 320px;
+                padding: 20px;
+                box-shadow: 0 8px 6px -6px black;
+                padding-top: 10px;
+
+                .option-container {
+                    font-size: 1.8rem;
+                    margin-bottom: 10px;
+                    text-align: right;
+
+                    i {
+                        color: #909399;
+                    }
+                }
+
+                .card-img-top {
+                    max-height: 180px;
+                    box-shadow: 0 8px 6px -6px black;
+
+                }
+
+                .card-body {
+
+                    a:hover {
+                        text-decoration: none;
+                    }
+
+                    .card-title {
+                        text-align: center;
+                        font-weight: 600;
+                    }
+
+                    .card-desc {
+                        text-align: center;
+                        color: #909399;
+                    }
+
+                    .card-text {
+                        text-align: center;
+                        font-size: 1.2rem;
+                    }
+
+                    .btn-block {
+                        width: 45%;
+                        height: 40px;
+                        background-color: #8ac832;
+                        border-radius: 20px;
+                        border: none;
+                        margin: 0 auto;
+                        outline: none;
+                    }
+
+                    .btn-block:hover {
+                        box-shadow: 0 8px 6px -6px black;
+                        background-color: #2d2f31;
+                        color: #8ac832;
+                    }
+                }
+            }
+
+        }
+
+
+    }
+
+
+
+} 
+
+
+
+// reserve page
+
+.bg-reserve-add {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-image: url('../images/bg-reserve.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+
+}
+
+.reserve-add-container {
+
+    .reserve-add-header {
+        margin-bottom: 40px;
+
+        h3 {
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: solid 1px black;
+            
+        }
+    }
+
+    .reserve-add-body {
+
+        .reserve-image img {
+            box-shadow: 0 8px 6px -6px black;
+
+        }
+
+        form {
+
+            input[type="date"], select {
+                width: 80%;
+                outline: 0;
+                border-radius: 4px;
+                border: 1px solid #d1d1d1;
+                box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.2);
+            }
+        
+            input:hover {
+                box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
+            }
+        
+            input:focus {
+                color: #4b515d;
+                border: 1px solid #B8B6B6;
+                box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
+            }
+
+        }
+
+    }
+
+    .button-container {
+        margin-top: 15px;
+
+        .btn-block {
+            width: 50%;
+            height: 35px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            background-color: #8ac832;
+            color: #2d2f31;
+
+        }
+
+        .btn-block:hover {
+            background-color: #2d2f31;
+            color: #8ac832;
+            box-shadow: 0 8px 6px -6px black;
+        }
+
         
     }
-} 
+}
+
+
+
+// reserve confirm page
+
+.bg-reserve-info {
+    padding-top: 60px;
+    padding-bottom: 100px;
+    background-image: url('../images/bg-reserve-info.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+
+}
+
+.reserve-info-container {
+
+    .reserve-info-header {
+        margin-bottom: 40px;
+
+        h3 {
+            text-align: center;
+            margin: 0 auto;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: solid 1px black;
+            
+        }
+    }
+
+    .reserve-info-body {
+
+        .table {
+            margin-bottom: 25px;
+
+            .label {
+                font-weight: 600;
+            }
+        }
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+
+        .btn-block {
+            width: 100px;
+            height: 35px;
+            margin: 0 auto;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            margin-right: 15px;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .confirm {
+            background-color: #8ac832;
+            color: #2d2f31;
+        }
+
+        .confirm:hover {
+            background-color: #2d2f31;
+            color: #8ac832;
+            box-shadow: 0 8px 6px -6px black;
+        }
+
+        .cancel {
+            background-color: #e64457;
+            color: white;
+        }
+
+        .cancel:hover {
+            background-color: white;
+            border: solid 1px#e64457;
+            color: #e64457;
+            box-shadow: 0 8px 6px -6px black;
+        }
+    }
+}
+
+
+
+
+// profile status
+
+.bg-prof-status {
+    padding-top: 60px;
+    padding-bottom: 100px;
+    background-image: url('../images/bg-prof-status.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+
+}
+
+.prof-status-container {
+
+    .prof-status-header {
+        margin-bottom: 40px;
+
+        h3 {
+            text-align: center;
+            margin: 0 auto;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: solid 1px black;
+            
+        }
+    }
+
+    .prof-status-body {
+
+        .reserve-image {
+            .image-container img {
+                margin-bottom: 20px;
+                box-shadow: 0 8px 6px -6px black;
+            }
+
+            h3 a {
+                color: #0058a0  
+            }
+
+        }
+
+        .table {
+            margin-bottom: 25px;
+            min-width: 50%;
+
+            .row-header {
+                font-weight: 600;
+            }
+        }
+    }
+
+    .button-container {
+  
+        .btn-block {
+            width: 50%;
+            height: 35px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            margin-right: 15px;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .confirm {
+            background-color: #8ac832;
+            color: #2d2f31;
+        }
+
+        .confirm:hover {
+            background-color: #2d2f31;
+            color: #8ac832;
+            box-shadow: 0 8px 6px -6px black;
+        }
+
+        .cancel {
+            background-color: #e64457;
+            color: white;
+        }
+
+        .cancel:hover {
+            background-color: white;
+            border: solid 1px#e64457;
+            color: #e64457;
+            box-shadow: 0 8px 6px -6px black;
+        }
+    }
+}
+
+
+
+// profile transaction history
+
+.bg-prof-list {
+    padding-top: 60px;
+    padding-bottom: 100px;
+    background-image: url('../images/bg-main.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.prof-list-container {
+
+    .prof-list-header {
+        margin-bottom: 30px;
+
+        h3 {
+            text-align: center;
+            margin: 0 auto;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: solid 1px black;
+            
+        }
+    }
+
+    .search-container {
+        margin-bottom: 15px;
+    }
+}
+
+
+// admin transaction page
+
+.bg-trans-list {
+    padding-top: 60px;
+    padding-bottom: 100px;
+    background-image: url('../images/bg-main.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.trans-list-container {
+
+    .trans-list-header {
+        margin-bottom: 30px;
+
+        h3 {
+            text-align: center;
+            margin: 0 auto;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: solid 1px black;
+            
+        }
+    }
+
+    .search-container {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+// tansaction info page
+
+.bg-trans-info {
+    padding-top: 60px;
+    padding-bottom: 100px;
+    background-image: url('../images/bg-trans-info.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+
+}
+
+.trans-info-container {
+
+    .trans-info-header {
+        margin-bottom: 40px;
+
+        h3 {
+            text-align: center;
+            margin: 0 auto;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: solid 1px black;
+            
+        }
+    }
+
+    .trans-info-body {
+
+        .info-image {
+            .image-container img {
+                margin-bottom: 20px;
+                box-shadow: 0 8px 6px -6px black;
+            }
+
+            h3 a {
+                color: #0058a0  
+            }
+
+        }
+
+        .table {
+            margin-bottom: 25px;
+            min-width: 50%;
+
+            .row-header {
+                font-weight: 600;
+            }
+        }
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+  
+        .btn-block {
+            height: 35px;
+            width: 100px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            margin-right: 15px;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .update {
+            background-color: #8ac832;
+            color: #2d2f31;
+        }
+
+        .update:hover {
+            background-color: #2d2f31;
+            color: #8ac832;
+            box-shadow: 0 8px 6px -6px black;
+        }
+
+        .delete {
+            background-color: #e64457;
+            color: white;
+        }
+
+        .delete:hover {
+            background-color: white;
+            border: solid 1px#e64457;
+            color: #e64457;
+            box-shadow: 0 8px 6px -6px black;
+        }
+    }
+}
+
+
+
+// trans edit info page
+
+.bg-trans-edit {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-image: url('../images/bg-trans-edit.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+
+}
+
+.trans-edit-container {
+
+    .trans-edit-header {
+        margin-bottom: 40px;
+
+        h3 {
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: solid 1px black;
+            
+        }
+    }
+
+    .trans-edit-body {
+
+        .trans-image{
+            img {
+                box-shadow: 0 8px 6px -6px black;
+            }
+
+            h3 a {
+                color: #0058a0  
+            }
+
+            .image-container {
+                margin-bottom: 20px;
+            }
+        }
+
+        form {
+
+            input[type="date"], select {
+                width: 80%;
+                outline: 0;
+                border-radius: 4px;
+                border: 1px solid #d1d1d1;
+                box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.2);
+            }
+        
+            input:hover {
+                box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
+            }
+        
+            input:focus {
+                color: #4b515d;
+                border: 1px solid #B8B6B6;
+                box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
+            }
+
+        }
+
+    }
+
+    .button-container {
+        margin-top: 15px;
+
+        .btn-block {
+            width: 50%;
+            height: 35px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            background-color: #8ac832;
+            color: #2d2f31;
+
+        }
+
+        .btn-block:hover {
+            background-color: #2d2f31;
+            color: #8ac832;
+            box-shadow: 0 8px 6px -6px black;
+        }
+
+        
+    }
+}
+
+
+
+
 
 // header
 
@@ -479,7 +1326,7 @@ body {
     background-color: $headerColor;
 
     .navbar-brand {
-        color: $headerTextColor;
+        color: #8ac832;
         // font-family: $headerText;
     }
 
@@ -492,6 +1339,11 @@ body {
         color: $headerTextColor;
         // font-family: $headerText;
         text-align: center;
+    }
+
+    .nav-item a:hover {
+        color: #8ac832;
+        text-decoration: underline;
     }
 
     .navbar-toggler span {
@@ -546,10 +1398,6 @@ body {
     .cars-add-container {
         margin-bottom: 70px;
 
-        // .cars-add-body {
-        //     flex-direction: column;
-        // }
-
     }
 
 
@@ -563,6 +1411,61 @@ body {
         flex-direction: column;
     }
 
+    .main-container .body-container #card-container .card {
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+
+    // car info
+
+    .bg-car-info {
+        background-image: none;
+        padding-top: 70px;
+    }
+
+    .car-info-body {
+        padding-bottom: 50px;
+        .car-image {
+            margin-bottom: 30px;
+        }
+    }
+
+
+    // car edit
+
+    .bg-car-edit {
+        background-image: none;
+    }
+
+    .car-edit-container {
+        margin-bottom: 70px;
+        
+    }
+
+
+    // reserve add 
+
+    .bg-reserve-add {
+        background-image: none;
+    }
+
+
+    // reserve info
+
+    .bg-reserve-info {
+        background-image: none;
+        padding-bottom: 150px;
+    }
+
+
+    // transaction info
+
+    .bg-trans-info {
+        background-image: none;
+        padding-bottom: 150px;
+    }
+
 }
 
 
@@ -570,18 +1473,32 @@ body {
 
     // login page
 
+
+    // add car
     .cars-add-container {
         margin-left: 10px;
 
-        // .cars-add-body {
-        //     flex-direction: column;
-        // }
+    }
+
+    //car edit
+    .car-edit-body {
+        margin-right: 10px;
     }
 
 
     // home page
 
-   
+    .main-container .body-container #card-container .card {
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+
+
+    // reserve add
+
+    .bg-reserve-add {
+        background-image: url('../images/bg-reserve2.png');
+    }
 
 }
 
