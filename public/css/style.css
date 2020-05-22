@@ -1275,6 +1275,11 @@ body {
     padding-bottom: 0px;
     padding-top: 70px;
   }
+  .bg-register {
+    background-image: none;
+    padding-top: 70px;
+    padding-bottom: 150px;
+  }
   .bg-add-cars {
     background-image: none;
     padding-top: 50px;
