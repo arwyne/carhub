@@ -14,11 +14,11 @@
                 </div>
 
             
-            <div class="row search-container">
+            {{-- <div class="row search-container">
                 <div class="col">
                     <input type="text" name="search" id="search" class="form-control" placeholder="Search">
                 </div>
-            </div>
+            </div> --}}
     
                 
            
