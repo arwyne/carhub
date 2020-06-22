@@ -29,8 +29,12 @@ class TransactionController extends Controller
     public function transactionDelete($id) {
         
         $reservation = Reservation::find($id);
-        $reservation->delete();
         
+        $user = $reservation->user()->first();
+        $user->rent_status = 0;
+        $user->update();
+        $reservation->delete();
+
         alert()->success('Deleted Successfully');
         return redirect('/transactions');
 

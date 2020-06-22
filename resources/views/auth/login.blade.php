@@ -68,6 +68,15 @@
                             @endif --}}
                         </div>
 
+                        <hr>
+                        <div>
+                            <div>
+                                <div>Admin Account</div>
+                                <div>Username = admin@mail.com</div>
+                                <div>Password = admin123</div>
+                            </div>
+                        </div>
+
 
                     </div>
 
